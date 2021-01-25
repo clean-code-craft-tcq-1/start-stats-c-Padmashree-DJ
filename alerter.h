@@ -11,6 +11,6 @@
 
 #include "stats.h"
 
-extern void emailAlerter();
-extern void ledAlerter();
+extern void emailAlerter(void);
+extern void ledAlerter(void);
 #endif /* ALERTER_H_ */
