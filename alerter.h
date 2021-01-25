@@ -9,6 +9,7 @@
 #define ALERTER_H_
 
 
+#include "stats.h"
 
 extern alerter_funcptr emailAlerter(void);
 extern alerter_funcptr ledAlerter(void);
