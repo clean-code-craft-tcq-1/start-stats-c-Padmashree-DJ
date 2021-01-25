@@ -15,12 +15,12 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
     s.max = 0;
     int next_index=0;
     int i,j,k;
-	float sum=0;
+	float sum=0.0;
 	float lnumberset[setlength-1];
 
     for (k=0;k<setlength;++k)
     {
-        sum += lnumberset[k];
+        sum += numberset[k];
     }
 
     s.average= (float)(sum/setlength);
@@ -54,12 +54,12 @@ int emailAlertCallCount = 0;
 int ledAlertCallCount = 0;
 
 
-// void check_and_alert(const float maxThreshold, alerter_funcptr alerters[], struct Stats computedStats)
-// {
-    // if(computedStats.max>maxThreshold)
-    // {
-      // (alerters[0])();
-      // (alerters[1])();
+void check_and_alert(const float maxThreshold, alerter_funcptr alerters[], struct Stats computedStats)
+{
+    if(computedStats.max>maxThreshold)
+    {
+      (alerters[0])();
+      (alerters[1])();
 
-    // }
-// }
+    }
+}

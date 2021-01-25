@@ -28,22 +28,23 @@ TEST_CASE("average is NaN for empty array") {
     REQUIRE(isnanf(computedStats.min));
 }
 
-/*
+
 TEST_CASE("raises alerts when max is greater than threshold") {
     // create additional .c and .h files
     // containing the emailAlerter, ledAlerter functions
-    alerter_funcptr alerters[](void) = {&emailAlerter, &ledAlerter};
-
-    float numberset[] = {99.8, 34.2, 4.5};
+    alerter_funcptr alerters[2] ;
+	alerters[0]=emailAlerter;
+	alerters[1]=ledAlerter;
+	
+	float numberset[] = {99.8, 34.2, 4.5};
     int setlength = sizeof(numberset) / sizeof(numberset[0]);
     struct Stats computedStats = compute_statistics(numberset, setlength);
 
     const float maxThreshold = 10.2;
-    check_and_alert(maxThreshold, alerters, computedStats);
+check_and_alert(maxThreshold, alerters, computedStats);
 
     // need a way to check if both emailAlerter, ledAlerter were called
     // you can define call-counters along with the functions, as shown below
     REQUIRE(emailAlertCallCount == 1);
     REQUIRE(ledAlertCallCount == 1);
 }
-*/

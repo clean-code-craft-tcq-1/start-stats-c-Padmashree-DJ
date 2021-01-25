@@ -7,14 +7,14 @@
 #include "alerter.h"
 
 
-// void emailAlerter(void)
-// {
-    // emailAlertCallCount++;
-// }
+void emailAlerter(void)
+{
+    emailAlertCallCount++;
+}
 
-// void ledAlerter(void)
-// {
-    // ledAlertCallCount++;
-// }
+void ledAlerter(void)
+{
+    ledAlertCallCount++;
+}
 
 
