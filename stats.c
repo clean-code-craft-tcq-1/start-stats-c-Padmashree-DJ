@@ -14,10 +14,16 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
     s.min = 0;
     s.max = 0;
     int next_index=0;
-    int i,j,k,sum;
+    int i,j,k;
+	float sum=0;
 	float lnumberset[setlength-1];
 
+    for (k=0;k<setlength;++k)
+    {
+        sum += lnumberset[k];
+    }
 
+    s.average= (float)(sum/setlength);
 	for (int loop_counter=0; loop_counter<setlength-1;loop_counter++)
 	{
 		lnumberset[loop_counter]=numberset[loop_counter];
@@ -37,12 +43,6 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
         swap(&lnumberset[next_index],&lnumberset[i]);
     }
 
-    for (k=0;k<setlength-1;k++)
-    {
-        sum += lnumberset[k];
-    }
-
-    s.average=sum/setlength;
     s.min=lnumberset[setlength-1];
     s.max=lnumberset[0];
 
@@ -54,12 +54,12 @@ int emailAlertCallCount = 0;
 int ledAlertCallCount = 0;
 
 
-/*void check_and_alert(const float maxThreshold, alerter_funcptr alerters[], struct Stats computedStats)
-{
-    if(computedStats.max>maxThreshold)
-    {
-      (alerters[0])();
-      (alerters[1])();
+// void check_and_alert(const float maxThreshold, alerter_funcptr alerters[], struct Stats computedStats)
+// {
+    // if(computedStats.max>maxThreshold)
+    // {
+      // (alerters[0])();
+      // (alerters[1])();
 
-    }
-}*/
+    // }
+// }

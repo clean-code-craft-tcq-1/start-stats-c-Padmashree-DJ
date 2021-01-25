@@ -32,7 +32,7 @@ TEST_CASE("average is NaN for empty array") {
 TEST_CASE("raises alerts when max is greater than threshold") {
     // create additional .c and .h files
     // containing the emailAlerter, ledAlerter functions
-    alerter_funcptr alerters[2](void) = {&emailAlerter, &ledAlerter};
+    alerter_funcptr alerters[](void) = {&emailAlerter, &ledAlerter};
 
     float numberset[] = {99.8, 34.2, 4.5};
     int setlength = sizeof(numberset) / sizeof(numberset[0]);
@@ -45,4 +45,5 @@ TEST_CASE("raises alerts when max is greater than threshold") {
     // you can define call-counters along with the functions, as shown below
     REQUIRE(emailAlertCallCount == 1);
     REQUIRE(ledAlertCallCount == 1);
-}*/
+}
+*/
