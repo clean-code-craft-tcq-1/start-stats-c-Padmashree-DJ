@@ -6,14 +6,15 @@
  */
 #include "alerter.h"
 
-alerter_funcptr emailAlerter()
+/*
+void emailAlerter(void)
 {
     emailAlertCallCount++;
 }
 
-alerter_funcptr ledAlerter()
+void ledAlerter(void)
 {
     ledAlertCallCount++;
 }
-
+*/
 
