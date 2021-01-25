@@ -8,7 +8,7 @@ struct Stats
 };
 
 
-void swap(int *xp, int *yp)
+void swap(float *xp, float *yp)
 {
     int temp = *xp;
     *xp = *yp;
@@ -22,29 +22,36 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
     s.max = 0;
     int next_index=0;
     int i,j,k,sum;
+	float lnumberset[setlength-1];
 
+
+	for (int loop_counter=0; loop_counter<setlength-1;loop_counter++)
+	{
+		lnumberset[loop_counter]=numberset[loop_counter];
+	}
+	
     for (i=0;i<setlength-1;i++)
     {
         next_index=i;
         for (j=i+1;j<setlength;j++)
         {
-            if (numberset[j]<numberset[next_index])
+            if (lnumberset[j]<lnumberset[next_index])
             {
                 next_index=j;
             }
         }
 
-        swap(numberset[next_index],numberset[i]);
+        swap(lnumberset[next_index],lnumberset[i]);
     }
 
     for (k=0;k<setlength-1;k++)
     {
-        sum += numberset[k];
+        sum += lnumberset[k];
     }
 
     s.average=sum/setlength;
-    s.min=numberset[setlength-1];
-    s.max=numberset[0];
+    s.min=lnumberset[setlength-1];
+    s.max=lnumberset[0];
 
     return s;
 }
