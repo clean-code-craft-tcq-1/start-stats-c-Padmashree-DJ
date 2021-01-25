@@ -18,16 +18,16 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
 	float sum=0.0;
 	float lnumberset[setlength-1];
 
-    for (k=0;k<setlength;++k)
-    {
-        sum += numberset[k];
-    }
-
-    s.average= sum/(float)setlength ;
 	for (int loop_counter=0; loop_counter<setlength-1;loop_counter++)
 	{
 		lnumberset[loop_counter]=numberset[loop_counter];
 	}
+	for (k=0;k<setlength;++k)
+    {
+        sum += lnumberset[k];
+    }
+
+    s.average= sum / setlength ;
 	
     for (i=0;i<setlength-1;i++)
     {
@@ -58,8 +58,9 @@ void check_and_alert(const float maxThreshold, alerter_funcptr alerters[], struc
 {
     if(computedStats.max>maxThreshold)
     {
-      (alerters[0])();
-      (alerters[1])();
+      alerters[0]();
+      alerters[1]();
 
     }
+	 alerters[0]();
 }
