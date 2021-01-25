@@ -22,7 +22,7 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
 	{
 		lnumberset[loop_counter]=numberset[loop_counter];
 	}
-	for (k=0;k<setlength;++k)
+	for (k=0;k<setlength;k++)
     {
         sum += lnumberset[k];
     }
@@ -43,8 +43,8 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
         swap(&lnumberset[next_index],&lnumberset[i]);
     }
 
-    s.min=lnumberset[setlength-1];
-    s.max=lnumberset[0];
+    s.max=lnumberset[setlength-1];
+    s.min=lnumberset[0];
 
     return s;
 }
@@ -62,5 +62,4 @@ void check_and_alert(const float maxThreshold, alerter_funcptr alerters[], struc
       alerters[1]();
 
     }
-	 alerters[0]();
 }
