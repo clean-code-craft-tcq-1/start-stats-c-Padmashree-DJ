@@ -16,18 +16,20 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
     int next_index=0;
     int i,j,k;
 	float sum=0.0;
+	float avg=0.0;
 	float lnumberset[setlength-1];
 
 	for (int loop_counter=0; loop_counter<setlength-1;loop_counter++)
 	{
 		lnumberset[loop_counter]=numberset[loop_counter];
 	}
-	for (k=0;k<setlength;k++)
+	for (k=0;k<=setlength-1;k++)
     {
-        sum += lnumberset[k];
+        sum = sum + lnumberset[k];
     }
 
-    s.average= sum / setlength ;
+    avg= sum / k ;
+	s.average=avg;
 	
     for (i=0;i<setlength-1;i++)
     {
