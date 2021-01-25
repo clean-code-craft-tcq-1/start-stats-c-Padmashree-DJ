@@ -23,7 +23,7 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
         sum += numberset[k];
     }
 
-    s.average= (float)(sum/setlength);
+    s.average= sum/(float)setlength ;
 	for (int loop_counter=0; loop_counter<setlength-1;loop_counter++)
 	{
 		lnumberset[loop_counter]=numberset[loop_counter];
