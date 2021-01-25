@@ -2,12 +2,6 @@
 #include "alerter.h"
 
 
-struct Stats
-{
-     float average, min, max;
-};
-
-
 void swap(float *xp, float *yp)
 {
     int temp = *xp;
@@ -41,7 +35,7 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
             }
         }
 
-        swap(lnumberset[next_index],lnumberset[i]);
+        swap(&lnumberset[next_index],&lnumberset[i]);
     }
 
     for (k=0;k<setlength-1;k++)
