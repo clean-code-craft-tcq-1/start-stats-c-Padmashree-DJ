@@ -29,7 +29,7 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
 
     s.average= (float)sum / setlength ;
 	
-    for (i=0;i<setlength;i++)
+    for (i=0;i<setlength-1;i++)
     {
         next_index=i;
         for (j=i+1;j<setlength;j++)
